@@ -12,6 +12,6 @@ numero_a_escribir = numero_leido + 1
 numero_a_escribir = str(numero_a_escribir)
 
 #SOBRESCRIBIMOS EL TXT CON EL NÚMEOR QUE LEIMOS + 1
-with open('numero.txt', 'w') as file:
+with open('carpeta/numero.txt', 'w') as file:
     numero_leido = file.write(numero_a_escribir)
 
