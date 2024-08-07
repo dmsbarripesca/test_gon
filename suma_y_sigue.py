@@ -3,7 +3,7 @@ import os
 
 
 #ABRIMOS Y LEEMOS EL TXT
-with open('numero.txt', 'r') as file:
+with open('carpeta/numero.txt', 'r') as file:
     numero_leido = file.read()
 
 #SUMAMOS 1 AL NÚMERO LEIDO
