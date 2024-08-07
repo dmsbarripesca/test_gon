@@ -1,0 +1,34 @@
+name: Actualizar Número
+
+on:
+  push:
+    branches:
+      - main  # Evento ocurre al hacer push a la rama main
+
+jobs:
+  actualizar_numero:
+    runs-on: ubuntu-latest  # Define el sistema operativo donde se ejecutará el trabajo
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v2  # Acción para hacer checkout del repositorio
+
+      - name: Configurar Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # Usa la versión de Python que necesites
+
+      - name: Ejecutar script de Python
+        run: python suma_y_sigue.py  # Ejecuta tu script de Python
+
+      - name: Commit y push cambios
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add numero.txt
+          git commit -m "Actualizar número automáticamente"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          
